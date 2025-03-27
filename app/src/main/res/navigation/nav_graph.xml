@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/weeksFragment">
+
+    <!-- WeeksFragment as the starting fragment -->
+    <fragment
+        android:id="@+id/weeksFragment"
+        android:name="com.example.weekdays.WeeksFragment"
+        android:label="Weeks Fragment"
+        tools:layout="@layout/fragment_weeks">
+
+        <!-- Define the action to navigate to MuscleGroupListFragment -->
+        <action
+            android:id="@+id/action_weeksFragment_to_muscleGroupListFragment"
+            app:destination="@id/muscleGroupListFragment">
+
+            <argument
+                android:name="selectedWeek"
+                app:argType="com.example.weekdays.WeeksData" />
+        </action>
+    </fragment>
+
+    <!-- MuscleGroupListFragment -->
+    <fragment
+        android:id="@+id/muscleGroupListFragment"
+        android:name="com.example.musclegroups.MuscleGroupListFragment"
+        android:label="Muscle Group List"
+        tools:layout="@layout/fragment_muscle_group_list">
+
+        <!-- Define the argument to receive the "week" in MuscleGroupListFragment -->
+        <argument
+            android:name="selectedWeek"
+            app:argType="com.example.weekdays.WeeksData" />
+        <action
+            android:id="@+id/action_muscleGroupListFragment_to_weeksFragment"
+            app:destination="@id/weeksFragment" />
+        <action
+            android:id="@+id/action_muscleGroupListFragment_to_exerciseListFragment"
+            app:destination="@id/exerciseListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exerciseListFragment"
+        android:name="com.example.Exercises.ExerciseListFragment"
+        android:label="fragment_exercise_list"
+        tools:layout="@layout/fragment_exercise_list" >
+        <action
+            android:id="@+id/action_exerciseListFragment_to_muscleGroupListFragment"
+            app:destination="@id/muscleGroupListFragment" />
+        <argument
+            android:name="MuscleGroupData"
+            app:argType="com.example.musclegroups.MuscleGroupData" />
+    </fragment>
+
+</navigation>
