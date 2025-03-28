@@ -1,6 +1,5 @@
 
-Hkotlin:S14811")Remove this unused "name" local variable.(Ü³«ó8ı¤²¹İ2
-9kotlin:S1128	"Remove this unused import.(¼Ù ê8Ã†²İ2
-9kotlin:S1128"Remove this unused import.(ñúû‡8îË°¹İ2
->kotlin:S1128"Remove this unused import.(¼ÔÓöûÿÿÿÿ8ü·á»İ2
-Pkotlin:S6518)",Replace function call with indexed accessor.(•˜û¼úÿÿÿÿ8‰¸á»İ2
+=kotlin:S125D"Remove this commented out code.(À”©í8Æ›Ìáİ2
+Gkotlin:S1874;"#Deprecated code should not be used.(ı©ùîûÿÿÿÿ8Í›Ìáİ2
+Bkotlin:S1874K"#Deprecated code should not be used.(‚´Ã¬8Í›Ìáİ2
+Pkotlin:S6518)",Replace function call with indexed accessor.(Ü¦úİıÿÿÿÿ8šµ×áİ2

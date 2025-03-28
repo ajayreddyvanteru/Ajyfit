@@ -1,6 +1,3 @@
 
 qkotlin:S117("NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Žë‘Ýûÿÿÿÿ8µƒö¸Ü2
 ykotlin:S6558)"URemove this it parameter declaration or give this lambda parameter a meaningful name.(ÀÛ“‘ùÿÿÿÿ8Ìõ°Ý2
->kotlin:S1128"Remove this unused import.(éñ–Éùÿÿÿÿ8Ï·á»Ý2
->kotlin:S1128"Remove this unused import.(Î´À¹ýÿÿÿÿ8Ï·á»Ý2
-Pkotlin:S6518"",Replace function call with indexed accessor.(Ç”“–üÿÿÿÿ8Û·á»Ý2

@@ -17,23 +17,14 @@ import com.example.roomDB.ExerciseInputDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ExerciseListViewModel(application: Application,private val userInputDao: ExerciseInputDao) : AndroidViewModel(application) {
+class ExerciseListViewModel(application: Application) : AndroidViewModel(application) {
 
+    private val imageDao: ExerciseInputDao = AppDatabase.getDatabase(application).imageDao()
+    val allImages: LiveData<List<ExerciseInput>> = imageDao.getAllImagesLive()
 
-    private val _mediaList = MutableLiveData<List<Pair<String, ByteArray>>>()
-    val mediaList: LiveData<List<Pair<String, ByteArray>>> get() = _mediaList
-
-    val userInputs = liveData(Dispatchers.IO) {
-        emit(userInputDao.getAllInputs()) // Fetch the data from the Room database
-    }
-
-    // Insert function (you can call this from your fragment if needed)
-
-    fun insertUserInput(inputText: String) {
-        viewModelScope.launch {
-            val userInput = ExerciseInput(inputText = inputText)
-            userInputDao.insertUserInput(userInput) // Insert into the database
+    fun saveImage(image: ExerciseInput) {
+        viewModelScope.launch(Dispatchers.IO) {
+            imageDao.insertImage(image)
         }
     }
-
 }

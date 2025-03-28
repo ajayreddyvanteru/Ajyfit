@@ -1,6 +1,7 @@
 package com.example.roomDB
 
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -8,8 +9,8 @@ import androidx.room.Query
 @Dao
 interface ExerciseInputDao {
     @Insert
-    suspend fun insertUserInput(exerciseInput: ExerciseInput) // Method to insert data
+    suspend fun insertImage(image: ExerciseInput)
 
     @Query("SELECT * FROM exercise_input")
-    suspend fun getAllInputs(): List<ExerciseInput> // Method to get all inputs from the table
+    fun getAllImagesLive(): LiveData<List<ExerciseInput>>
 }
