@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.MediaController
 import android.widget.Toast
+import androidx.core.net.toUri
 import androidx.lifecycle.Observer
 import coil.load
 import com.bumptech.glide.Glide
@@ -27,6 +28,7 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.upstream.DefaultDataSource
+import java.io.File
 
 class ExerciseListFragment : Fragment() {
 
@@ -60,7 +62,7 @@ class ExerciseListFragment : Fragment() {
                         .into(binding.imageView)
                 }
             }
-            if(images.size>0 && images.get(images.lastIndex).name.equals("Sample Video")){
+            if(images.size>0 && images.get(0).name.equals("Sample Video")){
                 setupVideoPlayer(images.get(images.lastIndex).uri) // Pass the URI string directly
             }
 
@@ -86,7 +88,9 @@ class ExerciseListFragment : Fragment() {
             }
         }
         binding.btnSaveVideo.setOnClickListener {
+
             val name = "Sample Video"
+            videoUri=saveVideoToAppStorage(Uri.parse(videoUri))
             videoUri?.let {
                 println("Storing video URI: $it") // Add this for debugging
                 val video = ExerciseInput(name = name, uri = it)
@@ -96,6 +100,17 @@ class ExerciseListFragment : Fragment() {
 
 
         return  binding.root
+    }
+    private fun saveVideoToAppStorage(uri: Uri): String {
+        val inputStream = requireContext().contentResolver.openInputStream(uri)!!
+        val videoFile = File(requireContext().filesDir, "videos/${System.currentTimeMillis()}.mp4")
+        videoFile.parentFile?.mkdirs()
+        inputStream.use { input ->
+            videoFile.outputStream().use { output ->
+                input.copyTo(output)
+            }
+        }
+        return videoFile.toUri().toString()
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
