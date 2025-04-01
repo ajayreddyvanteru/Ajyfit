@@ -21,7 +21,6 @@ class ExerciseListViewModel(application: Application) : AndroidViewModel(applica
 
     private val imageDao: ExerciseInputDao = AppDatabase.getDatabase(application).imageDao()
     val allImages: LiveData<List<ExerciseInput>> = imageDao.getAllImagesLive()
-
     fun saveImage(image: ExerciseInput) {
         viewModelScope.launch(Dispatchers.IO) {
             imageDao.insertImage(image)
