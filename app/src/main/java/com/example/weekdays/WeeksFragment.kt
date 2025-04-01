@@ -46,16 +46,11 @@ class WeeksFragment : Fragment() {
             }
         })
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().popBackStack()
+            requireActivity().finish()
         }
 
         return rootView
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        weeksViewModel = ViewModelProvider(this).get(WeeksViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

@@ -45,7 +45,8 @@ class MuscleGroupListFragment : Fragment() {
             recyclerView.adapter = adapter
         })
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().popBackStack()
+            val action = MuscleGroupListFragmentDirections.actionMuscleGroupListFragmentToWeeksFragment()
+            findNavController().navigate(action)
         }
 
 

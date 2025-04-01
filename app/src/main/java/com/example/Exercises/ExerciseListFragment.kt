@@ -81,6 +81,7 @@ class ExerciseListFragment : Fragment() {
         // Save selected image to Room database via ViewModel
         binding.btnSaveImage.setOnClickListener {
             val name = "Sample Image" // You can take user input for name if needed
+            imageUri=saveImageToAppStorage(Uri.parse(imageUri))
             imageUri?.let {
                 val image = ExerciseInput(name = name, uri = it)
                 imageViewModel.saveImage(image)
@@ -100,6 +101,28 @@ class ExerciseListFragment : Fragment() {
 
 
         return  binding.root
+    }
+    private fun saveImageToAppStorage(uri: Uri): String {
+        return try {
+            // 1. Create a unique filename with timestamp
+            val imageFile = File(requireContext().filesDir, "images/img_${System.currentTimeMillis()}.jpg")
+
+            // 2. Ensure parent directory exists
+            imageFile.parentFile?.mkdirs()
+
+            // 3. Copy the image stream to app storage
+            requireContext().contentResolver.openInputStream(uri)?.use { inputStream ->
+                imageFile.outputStream().use { outputStream ->
+                    inputStream.copyTo(outputStream)
+                }
+            }
+
+            // 4. Return the file's URI as string
+            imageFile.toUri().toString()
+        } catch (e: Exception) {
+            Log.e("ImageSave", "Failed to save image: ${e.message}")
+            throw e // Or return a default/error URI
+        }
     }
     private fun saveVideoToAppStorage(uri: Uri): String {
         val inputStream = requireContext().contentResolver.openInputStream(uri)!!
