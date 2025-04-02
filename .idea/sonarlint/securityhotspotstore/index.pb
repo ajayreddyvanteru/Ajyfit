@@ -132,3 +132,9 @@ w
 G.idea/sonarlint/issuestore/d/3/d3283dd283c7b4666b8c598123e5aba40fb5e0ee,2\6\269a34c4a192212fce74d725b4d035ace673dbcb
 g
 7app/src/main/java/com/example/roomDB/ImageRepository.kt,1\7\1712ebf18b6ace4a65ccd7378f86fe0048b09255
+l
+<app/src/main/java/com/example/Exercises/ExercisesFragment.kt,8\e\8e2b1c94f647c7642e1222f538c2c47545e8c1f7
+n
+>app/src/main/java/com/example/Exercises/ExerciseListAdapter.kt,e\6\e69a88faeba5f4ab3ab8aa39c85846f02af8f9d8
+g
+7app/src/main/java/com/example/Exercises/ExerciseData.kt,0\4\046b328701bd4b6b4021620d541c8df72229e8df

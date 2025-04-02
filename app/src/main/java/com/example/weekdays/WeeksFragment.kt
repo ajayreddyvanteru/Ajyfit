@@ -10,6 +10,7 @@ import androidx.activity.addCallback
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ajfit.R
@@ -29,7 +30,7 @@ class WeeksFragment : Fragment() {
         weeksViewModel = ViewModelProvider(this).get(WeeksViewModel::class.java)
 
         val recyclerView: RecyclerView = rootView.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
 
 
         weeksViewModel.weeksList.observe(viewLifecycleOwner, Observer { weeks ->

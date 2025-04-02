@@ -51,6 +51,20 @@
         <argument
             android:name="MuscleGroupData"
             app:argType="com.example.musclegroups.MuscleGroupData" />
+        <action
+            android:id="@+id/action_exerciseListFragment_to_exercisesFragment"
+            app:destination="@id/exercisesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exercisesFragment"
+        android:name="com.example.Exercises.ExercisesFragment"
+        android:label="ExercisesFragment" >
+        <action
+            android:id="@+id/action_exercisesFragment_to_exerciseListFragment"
+            app:destination="@id/exerciseListFragment" />
+        <argument
+            android:name="ExerciseData"
+            app:argType="com.example.roomDB.ExerciseInputText" />
     </fragment>
 
 </navigation>

@@ -1,9 +1,6 @@
 
-@kotlin:S6310"Avoid hardcoded dispatchers.(Óé‹øÿÿÿÿ8„òÑáİ2
-9kotlin:S1128"Remove this unused import.(î±‚º8‡òÑáİ2
->kotlin:S1128"Remove this unused import.(Ô¼³úÿÿÿÿÿ8‡òÑáİ2
-9kotlin:S1128"Remove this unused import.( ¯–8‡òÑáİ2
-9kotlin:S1128
-"Remove this unused import.(ÅâÊ¸8‡òÑáİ2
->kotlin:S1128"Remove this unused import.(Çş›Ñùÿÿÿÿ8‡òÑáİ2
->kotlin:S1128"Remove this unused import.(éêîÅøÿÿÿÿ8‡òÑáİ2
+@kotlin:S6310"Avoid hardcoded dispatchers.(Óé‹øÿÿÿÿ8Ş±±°ß2
+@kotlin:S6310"Avoid hardcoded dispatchers.(Óé‹øÿÿÿÿ8Ş±±°ß2
+;kotlin:S6310%"Avoid hardcoded dispatchers.(èÁè8Õéá°ß2
+;kotlin:S6310-"Avoid hardcoded dispatchers.(èÁè8ß¹€±ß2
+ukotlin:S6311"QRemove this dispatcher. It is pointless when used with only suspending functions.(Óé‹øÿÿÿÿ8é‚¥±ß2
